@@ -237,6 +237,7 @@ mariadb-server-core-10.3 mariadb-common  mariadb-client-core-10.3 mariadb-client
 sudo userdel -r ${magentoOwner}
 sudo rm /etc/nginx/sites-available/${magentoRootDir}
 sudo rm /etc/nginx/sites-enabled/${magentoRootDir}
+exit 0
 }
 
 
@@ -251,12 +252,14 @@ setupComposer && \
 installMagento && \
 configNginx
 printSummary
+exit 0
 }
 
 showHelp(){
  echo
  echo "Magento installer and system configurator v $VERSION"
  echo "Usage: $0 [-i|-u]"
+ exit 0
 }
 
 if [ $# -eq 0 ];then
